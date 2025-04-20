@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD SYSTEM</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-dark-subtle">
+    <div class="container mt-3 bg-body-secondary  p-3">
+        <h1 class="mt-3 d-flex justify-content-center">CRUD SYSTEM</h1>
+
+        <div class="form-floating mb-3">
+            <input oninput="validateForm(this,'msgName')" type="text" class="form-control" id="productName" placeholder="Product Name">
+            <label for="productName">Product Name</label>
+            <p id="msgName" class="alert alert-danger p-3 w-100 mt-3  w-50 d-none">
+                It must start with a letter, be 3 to 20 characters long, and can only contain letters, numbers,
+                hyphens,
+                or underscores.
+            </p>
+        </div>
+        <div class="form-floating mt-2">
+            <input oninput="validateForm(this,'msgPrice')" type="number" class="form-control" id="productPrice" placeholder="Product Price">
+            <label for="productPrice">Product Price</label>
+            <p id="msgPrice" class="alert alert-danger p-3 w-100 mt-3 d-none">
+                It should be a number with up to 10 digits before the decimal point and up to 2 digits after the
+                decimal
+                (e.g., 100, 49.99, 1234567890.50)
+            </p>
+        </div>
+
+        <div class="form-floating mt-2">
+            <input oninput="validateForm(this,'msgCategory')" type="text" class="form-control" list="categoryOptions" id="productCate"
+                placeholder="Product Category">
+            <label for="productCate">Product Category</label>
+            
+            <datalist id="categoryOptions">
+                <option value="TV"/>
+                <option value="Laptop"/>
+                <option value="Mobile"/>
+                <option value="Screen"/>
+                <option value="Tablet"/>
+            </datalist>
+            <p id="msgCategory" class="alert alert-danger p-3 w-100 mt-3 d-none">
+                Please select a valid category
+            </p>
+        </div>
+
+        <div class="form-floating mt-2">
+            <input type="file" class="form-control" accept="image/*" id="productImg" placeholder="Product Image">
+            <label for="productImg">Product Image</label>
+
+        </div>
+
+        <div class="form-floating mt-2">
+            <textarea oninput="validateForm(this,'msgDescription')" type="text" class="form-control" id="productDes" placeholder="Product Description" rows="5"
+                cols="50"></textarea>
+            <label for="productDes">Product Description</label>
+            <p id="msgDescription" class="alert alert-danger p-3 w-100 mt-3 d-none">
+                Please enter a description between 3 and 150 characters. Letters, numbers, punctuation, and
+                spaces are
+                allowed.
+            </p>
+        </div>
+
+        <button onclick=addProduct() class="btn btn-outline-primary w-100  mt-3 shadow-lg" id="btnAdd">ADD
+            PRODUCT</button>
+        <button onclick=updateProduct() class="btn btn-outline-primary d-none w-100  mt-3 shadow-lg"
+            id="btnUpdate">UPDATE PRODUCT</button>
+
+        <h1 class="m-3">PRODUCTS ::::::::::: </h1>
+
+        <input oninput="searchProduct(this.value)" type="search" class="form-control w-100 mx-auto m-4" id="searchInput"
+            placeholder="Search">
+
+
+
+        <div class="row g-4 mb-4" id="rowData">
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

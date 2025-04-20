@@ -1,0 +1,7 @@
+.product img{
+    height:180px;
+    object-fit:cover
+}
+.product .card{
+    overflow: hidden;
+}
