@@ -49,6 +49,12 @@ function clearForm() {
   productCategoryInput.value = "";
   productDescInput.value = "";
   productImgInput.value = "";
+  document.querySelectorAll(".form-control").forEach(input => {
+    input.classList.remove("is-valid", "is-invalid");
+  });
+  document.querySelectorAll(".alert").forEach(msg => {
+    msg.classList.add("d-none");
+  });
 }
 
 // cardProduct
